@@ -9,6 +9,42 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
+    /* Container to center the single box */
+.cv-portfolio-container {
+    display: flex;
+    justify-content: center;
+    margin: 30px 0; /* Spacing above and below the box */
+}
+
+/* The chic single box */
+.cv-portfolio-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px; /* Space between icon and text */
+    background: rgba(255, 255, 255, 0.08); /* Very subtle glass-effect background */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Thin, elegant solid border */
+    border-radius: 50px; /* Makes it a chic pill shape */
+    padding: 15px 35px; /* Adjusts the size (15px tall, 35px wide) */
+    text-decoration: none; /* Removes the blue link underline */
+    color: white; /* Text and icon color */
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: all 0.3s ease; /* Smooth hover effect */
+}
+
+/* Icon styling inside the box */
+.cv-portfolio-box i {
+    font-size: 1.4rem;
+}
+
+/* Hover effect - makes it glow slightly */
+.cv-portfolio-box:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: white;
+    transform: translateY(-3px); /* Lifts up slightly */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); /* Soft shadow */
+}
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       background: linear-gradient(135deg, #2d0035 0%, #350040 30%, #3d0a4d 50%, #4a1058 65%, #5e1a6e 80%, #6b1f7d 100%);
@@ -167,11 +203,445 @@
     .frame-vertical { aspect-ratio: 9/14; }
     .frame-video { aspect-ratio: 1/1; background: rgba(0,0,0,0.25); }
 
-    /* for 6 items in catalogs: 2 rows of 3 */
-    .catalog-grid .work-item { flex: 0 0 calc(33.333% - 16px); max-width: calc(33.333% - 16px); }
+    /* ================================
+       AKNEBEH CASE STUDY - FULL WIDTH
+    ================================ */
 
-    /* for reels: only 2 items */
-    .reel-grid .work-item { flex: 0 0 calc(50% - 12px); max-width: calc(50% - 12px); }
+    .aknebeh-wrapper {
+      width: 100vw;
+      position: relative;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
+      margin-top: 0px;
+      margin-bottom: 0px;
+    }
+
+    .aknebeh-title {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 28px 20px 28px;
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 600;
+      color: #fff;
+      text-shadow: 0 0 30px rgba(255,255,255,0.3);
+      letter-spacing: -0.5px;
+    }
+
+    .project-case-study {
+      width: 100%;
+      max-width: 100%;
+      margin: 0 auto;
+      padding: 80px 6%;
+      background: #f3eadb;
+      display: grid;
+      grid-template-columns: 34% 66%;
+      column-gap: 45px;
+      row-gap: 35px;
+      color: #4b2d1d;
+    }
+
+    .project-info {
+      padding: 20px 10px;
+    }
+
+    .project-info h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(65px, 6vw, 105px);
+      line-height: 0.82;
+      font-weight: 400;
+      letter-spacing: -4px;
+      margin: 0;
+      color: #4b2d1d;
+    }
+
+    .title-line {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin: 35px 0 40px;
+      color: #92704e;
+    }
+    .title-line span:nth-child(2) {
+      width: 100px;
+      height: 1px;
+      background: #92704e;
+    }
+
+    .project-info h3 {
+      font-family: Arial, sans-serif;
+      font-size: 18px;
+      line-height: 1.5;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #596046;
+      margin-bottom: 25px;
+    }
+
+    .project-info > p {
+      max-width: 470px;
+      font-family: Arial, sans-serif;
+      font-size: 15px;
+      line-height: 1.9;
+      color: #604938;
+      margin-bottom: 45px;
+    }
+
+    .project-details {
+      border-top: 1px solid rgba(75, 45, 29, 0.25);
+      padding-top: 25px;
+    }
+
+    .detail-block {
+      margin-bottom: 30px;
+    }
+
+    .detail-block h4 {
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .scope-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px 15px;
+    }
+
+    .scope-grid span {
+      font-size: 16px;
+      font-weight: 500;
+      color: #684a35;
+      padding: 8px 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .scope-grid span::before {
+      content: "◆";
+      font-size: 14px;
+      color: #92704e;
+    }
+
+    .tools {
+      display: flex;
+      gap: 12px;
+    }
+    .tools span {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      background: #4b2d1d;
+      color: #f3eadb;
+      border-radius: 6px;
+      font-weight: bold;
+      font-size: 17px;
+    }
+
+    .project-gallery {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 6px;
+      align-self: start;
+    }
+
+    .gallery-image {
+      width: 100%;
+      aspect-ratio: 1 / 0.82;
+      overflow: hidden;
+      background: #d8c7ae;
+    }
+
+    .gallery-image img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      transition: transform 0.5s ease, filter 0.5s ease;
+    }
+
+    .gallery-image:hover img {
+      transform: scale(1.04);
+      filter: brightness(0.9);
+    }
+
+    .project-note {
+      grid-column: 2;
+      border: 1px solid #92704e;
+      border-radius: 30px;
+      padding: 20px 35px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+      color: #684a35;
+    }
+
+    .project-note p {
+      margin: 0;
+      text-align: center;
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    /* =========================================
+       SPEED — FULL WIDTH BLACK SECTION
+    ========================================= */
+
+    .speed-wrapper {
+      width: 100vw;
+      position: relative;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
+      margin-top: 0px;
+      margin-bottom: 0px;
+    }
+
+    .speed-project {
+      width: 100%;
+      max-width: 100%;
+      margin: 0 auto;
+      padding: 80px 6%;
+      background: #080808;
+      color: #ffffff;
+      display: grid;
+      grid-template-columns: 28% 72%;
+      column-gap: 50px;
+      row-gap: 40px;
+      overflow: hidden;
+    }
+
+    .speed-info {
+      padding: 10px 5px;
+      position: relative;
+    }
+
+    .speed-info h2 {
+      font-family: 'Arial Black', 'Impact', sans-serif;
+      font-size: clamp(80px, 10vw, 160px);
+      font-weight: 900;
+      font-style: italic;
+      letter-spacing: -5px;
+      line-height: 0.85;
+      margin: 0;
+      color: #ffffff;
+      text-transform: uppercase;
+      text-shadow: 5px 5px 0 #d91f26;
+      margin-bottom: 15px;
+    }
+
+    .speed-line {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin: 20px 0 30px;
+    }
+    .speed-line span:first-child {
+      width: 80px;
+      height: 2px;
+      background: #d91f26;
+    }
+    .speed-line span:last-child {
+      font-family: monospace;
+      color: #777;
+      font-size: 12px;
+    }
+
+    .speed-info h3 {
+      font-family: Arial, sans-serif;
+      font-size: 26px;
+      line-height: 1.1;
+      font-weight: 300;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 25px;
+    }
+    .speed-info h3 strong {
+      color: #d91f26;
+      font-weight: 800;
+      font-style: italic;
+    }
+
+    .speed-info > p {
+      max-width: 400px;
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      line-height: 1.9;
+      color: #a5a5a5;
+      margin-bottom: 35px;
+    }
+
+    .speed-details {
+      border-top: 1px solid #292929;
+      padding-top: 20px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+
+    .speed-detail {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .speed-detail span {
+      color: #d91f26;
+      font-family: monospace;
+      font-size: 10px;
+    }
+
+    .speed-detail p {
+      margin: 0;
+      color: #d0d0d0;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .speed-gallery {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      grid-template-rows: 280px 200px 200px;
+      gap: 7px;
+      align-self: start;
+    }
+
+    .speed-image {
+      overflow: hidden;
+      background: #111;
+      position: relative;
+    }
+
+    .speed-image img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      transition: transform 0.6s ease, filter 0.6s ease;
+    }
+
+    .speed-image-1 { grid-column: 1 / 3; grid-row: 1; }
+    .speed-image-2 { grid-column: 1; grid-row: 2; }
+    .speed-image-3 { grid-column: 2; grid-row: 2; }
+    .speed-image-4 { grid-column: 1; grid-row: 3; }
+    .speed-image-5 { grid-column: 2; grid-row: 3; }
+
+    .speed-image::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, transparent 60%, rgba(217,31,38,0.25));
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    .speed-image:hover img {
+      transform: scale(1.04);
+      filter: brightness(0.85);
+    }
+    .speed-image:hover::after { opacity: 1; }
+
+    .speed-statement {
+      grid-column: 2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 0;
+      border-top: 1px solid #292929;
+      border-bottom: 1px solid #292929;
+    }
+
+    .speed-statement span {
+      color: #d91f26;
+      font-size: 12px;
+      letter-spacing: 5px;
+    }
+
+    .speed-statement p {
+      margin: 0;
+      color: #ffffff;
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 5px;
+    }
+
+    @media (max-width: 1000px) {
+      .speed-project {
+        grid-template-columns: 1fr;
+        padding: 70px 5%;
+      }
+      .speed-gallery { grid-column: 1; }
+      .speed-statement { grid-column: 1; }
+    }
+
+    @media (max-width: 600px) {
+      .speed-project { padding: 50px 20px; row-gap: 35px; }
+      .speed-info { padding: 0; }
+      .speed-info h2 { font-size: 75px; letter-spacing: -4px; text-shadow: 4px 4px 0 #d91f26; }
+      .speed-info h3 { font-size: 20px; }
+      .speed-info > p { font-size: 13px; line-height: 1.8; max-width: 100%; }
+      .speed-gallery {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 220px 160px 160px;
+        gap: 4px;
+      }
+      .speed-image-1 { grid-column: 1 / 3; }
+      .speed-image-2 { grid-column: 1; }
+      .speed-image-3 { grid-column: 2; }
+      .speed-image-4 { grid-column: 1; }
+      .speed-image-5 { grid-column: 2; }
+      .speed-statement { grid-column: 1; gap: 10px; flex-wrap: wrap; justify-content: center; }
+      .speed-statement p { font-size: 9px; letter-spacing: 2px; text-align: center; }
+    }
+
+    @media (max-width: 1000px) {
+      .project-case-study {
+        grid-template-columns: 1fr;
+        padding: 70px 5%;
+      }
+      .project-gallery { grid-column: 1; }
+      .project-note { grid-column: 1; }
+      .project-info h2 { font-size: clamp(60px, 12vw, 100px); }
+    }
+
+    @media (max-width: 600px) {
+      .project-case-study {
+        padding: 60px 20px;
+        row-gap: 40px;
+      }
+      .project-info { padding: 0; }
+      .project-info h2 { font-size: 65px; letter-spacing: -3px; }
+      .project-info h3 { font-size: 15px; }
+      .project-info > p { font-size: 14px; }
+      .project-gallery {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 4px;
+      }
+      .gallery-image {
+        aspect-ratio: 1 / 1;
+      }
+      .project-note {
+        padding: 20px;
+        border-radius: 20px;
+        gap: 10px;
+      }
+      .project-note p {
+        font-size: 11px;
+      }
+    }
+
+    .catalog-grid .work-item { flex: 0 0 calc(33.333% - 16px); max-width: calc(33.333% - 16px); }
+    .reel-grid .work-item { flex: 0 0 calc(33.333% - 16px); max-width: calc(33.333% - 16px); }
 
     @media (max-width: 768px) {
       .hero { flex-direction: column; text-align: center; gap: 35px; min-height: auto; }
@@ -189,7 +659,6 @@
       .work-section-header { flex-direction: column; align-items: flex-start; }
     }
 
-    /* other sections */
     .placeholder-box {
       background: rgba(30,4,40,0.5); backdrop-filter: blur(12px);
       border: 2px dashed rgba(255,255,255,0.5); border-radius: 24px;
@@ -198,7 +667,7 @@
     .about-highlight {
       background: rgba(100,30,140,0.2); backdrop-filter: blur(10px);
       padding: 28px; border-radius: 30px; border-left: 6px solid #fff;
-      font-style: italic; color: #fff;
+      font-style: italic; color: #fff;  margin-top: 30px;
     }
     .services-grid {
       display: grid; grid-template-columns: repeat(auto-fill, minmax(165px,1fr)); gap: 22px;
@@ -253,6 +722,19 @@
     }
     .logo-card:hover { border-color: #fff; background: rgba(40,8,55,0.6); box-shadow: 0 8px 22px rgba(200,160,230,0.4); }
     footer { text-align: center; padding: 30px; opacity: 0.8; }
+
+    /* Work info for reels */
+    .work-info {
+      padding: 12px 16px;
+    }
+    .work-info .client-name {
+      color: #fff;
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+    .work-info .client-name i {
+      margin-right: 6px;
+    }
   </style>
 </head>
 <body>
@@ -264,7 +746,7 @@
     </div>
     <div class="hero-text-stack">
       <h1>Rabab Salah</h1>
-      <div class="profession">Expert Graphic Designer</div>
+      <div class="profession">Senior Graphic Designer</div>
       <a href="#contact" class="btn-primary"><i class="fas fa-feather-alt"></i> Begin collaboration</a>
     </div>
   </section>
@@ -273,129 +755,436 @@
   <section id="about">
     <h2 class="section-title">About Me</h2>
     <div class="about-text">
-      <p><strong>Who I am:</strong> Senior Graphic Designer with over 20 years of experience creating impactful visual identities, marketing campaigns, and digital experiences for businesses across multiple industries.</p>
-      <div class="placeholder-box"><i class="fas fa-pen-fancy"></i> Background space (write later)</div>
-      <div class="about-highlight">✨ People hire people. Design is emotion, precision, and the courage to be unforgettable.</div>
+      <p><strong>Who I am:</strong> Senior Graphic Designer with over 10 years of experience creating impactful visual identities, marketing campaigns, and digital experiences for businesses across multiple industries.</p>
+      <div class="about-highlight">✨ Design is emotion, precision, and the courage to be unforgettable. The visuals speak, the brands resonate.</div>
     </div>
   </section>
 
-  <!-- FEATURED WORK - 6 parts with section-level client/desc -->
+  <!-- FEATURED WORK -->
   <section id="work">
     <h2 class="section-title">Featured Work</h2>
 
-<div class="work-grid" id="social1">
-  <!-- Photo 1 -->
-  <div class="work-item">
-    <div class="work-img frame-square">
-      <img src="your-image-1.jpg" alt="Social post 1" style="width:100%;height:100%;object-fit:cover;">
-    </div>
-  </div>
-  <!-- Photo 2 -->
-  <div class="work-item">
-    <div class="work-img frame-square">
-      <img src="your-image-2.jpg" alt="Social post 2" style="width:100%;height:100%;object-fit:cover;">
-    </div>
-  </div>
-  <!-- Photo 3 -->
-  <div class="work-item">
-    <div class="work-img frame-square">
-      <img src="your-image-3.jpg" alt="Social post 3" style="width:100%;height:100%;object-fit:cover;">
-    </div>
-  </div>
-</div>
-
+    <!-- Social Media 1 -->
     <div class="work-section-block">
       <div class="work-section-header">
-        <h3>📱 Social Media Posts · Campaign B</h3>
+        <h3>📱 Social Media Posts · 1</h3>
         <div class="work-section-meta">
-          <span class="client"><i class="fas fa-user"></i> Urban Eats</span>
-          <span class="desc">Instagram grid & reels teaser</span>
+          <span class="client"><i class="fas fa-user"></i> MacKlinik</span>
+          <span class="desc">A premium social media design merging Apple's brand identity with the character of the space.</span>
         </div>
       </div>
-      <div class="work-grid" id="social2"></div>
+      <div class="work-grid">
+        <div class="work-item">
+          <div class="work-img frame-square" style="padding:0;overflow:hidden;">
+            <img src="Posts1.1.jpeg" alt="MacKlinik post 1" style="width:100%;height:100%;object-fit:cover;display:block;">
+          </div>
+        </div>
+        <div class="work-item">
+          <div class="work-img frame-square" style="padding:0;overflow:hidden;">
+            <img src="Posts1.2.jpeg" alt="MacKlinik post 2" style="width:100%;height:100%;object-fit:cover;display:block;">
+          </div>
+        </div>
+        <div class="work-item">
+          <div class="work-img frame-square" style="padding:0;overflow:hidden;">
+            <img src="Posts1.3.jpeg" alt="MacKlinik post 3" style="width:100%;height:100%;object-fit:cover;display:block;">
+          </div>
+        </div>
+      </div>
     </div>
 
+    <!-- Social Media 2 -->
     <div class="work-section-block">
       <div class="work-section-header">
-        <h3>📱 Social Media Posts · Campaign C</h3>
+        <h3>📱 Social Media Posts · 2</h3>
         <div class="work-section-meta">
-          <span class="client"><i class="fas fa-user"></i> Aura Wellness</span>
-          <span class="desc">Product highlights & lifestyle</span>
+          <span class="client"><i class="fas fa-user"></i> Let's Go</span>
+          <span class="desc">A vibrant social media campaign designed around the advertising company's existing brand identity.</span>
         </div>
       </div>
-      <div class="work-grid" id="social3"></div>
+      <div class="work-grid">
+        <div class="work-item">
+          <div class="work-img frame-square" style="padding:0;overflow:hidden;">
+            <img src="Posts2.1.jpeg" alt="Let's Go post 1" style="width:100%;height:100%;object-fit:cover;display:block;">
+          </div>
+        </div>
+        <div class="work-item">
+          <div class="work-img frame-square" style="padding:0;overflow:hidden;">
+            <img src="Posts2.2.jpeg" alt="Let's Go post 2" style="width:100%;height:100%;object-fit:cover;display:block;">
+          </div>
+        </div>
+        <div class="work-item">
+          <div class="work-img frame-square" style="padding:0;overflow:hidden;">
+            <img src="Posts2.3.jpeg" alt="Let's Go post 3" style="width:100%;height:100%;object-fit:cover;display:block;">
+          </div>
+        </div>
+      </div>
     </div>
 
-    <!-- 2. UX/UI: 3 horizontal frames, one client+desc -->
+    <!-- Social Media 3 -->
+    <div class="work-section-block">
+      <div class="work-section-header">
+        <h3>📱 Social Media Posts · 3</h3>
+        <div class="work-section-meta">
+          <span class="client"><i class="fas fa-user"></i> Smart Home</span>
+          <span class="desc">A sophisticated social media design created to appeal to a Class A audience in the real estate market.</span>
+        </div>
+      </div>
+      <div class="work-grid">
+        <div class="work-item">
+          <div class="work-img frame-square" style="padding:0;overflow:hidden;">
+            <img src="posts3.1.jpeg" alt="Smart Home post 1" style="width:100%;height:100%;object-fit:cover;display:block;">
+          </div>
+        </div>
+        <div class="work-item">
+          <div class="work-img frame-square" style="padding:0;overflow:hidden;">
+            <img src="posts3.2.jpeg" alt="Smart Home post 2" style="width:100%;height:100%;object-fit:cover;display:block;">
+          </div>
+        </div>
+        <div class="work-item">
+          <div class="work-img frame-square" style="padding:0;overflow:hidden;">
+            <img src="posts3.3.jpeg" alt="Smart Home post 3" style="width:100%;height:100%;object-fit:cover;display:block;">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== AKNEBEH CASE STUDY ===== -->
+    <div class="aknebeh-title">Branding &amp; Identity Design</div>
+
+    <div class="aknebeh-wrapper">
+      <section class="project-case-study">
+        <div class="project-info">
+          <h2>Akanaba<br>Café</h2>
+          <div class="title-line">
+            <span>◆</span>
+            <span></span>
+            <span>◆</span>
+          </div>
+          <h3>A brand rooted in<br>heritage and warmth.</h3>
+          <p>
+            Akanaba Café is a cozy, traditional café that brings the
+            charm of old streets and familiar coffee moments to life.
+            The brand identity reflects authenticity, comfort, and
+            a deep connection to community.
+          </p>
+          <div class="project-details">
+            <div class="detail-block">
+              <h4>Scope of Work</h4>
+              <div class="scope-grid">
+                <span>Logo Design</span>
+                <span>Brand Identity</span>
+                <span>Packaging</span>
+                <span>Color Palette</span>
+                <span>Signage</span>
+                <span>Environment</span>
+              </div>
+            </div>
+            <div class="detail-block">
+              <h4>Tools Used</h4>
+              <div class="tools">
+                <span>Ai</span>
+                <span>Ps</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-gallery">
+          <div class="gallery-image">
+            <img src="aka6.jpeg" alt="Akanaba Café interior branding">
+          </div>
+          <div class="gallery-image">
+            <img src="aka5.jpeg" alt="Akanaba Café packaging">
+          </div>
+          <div class="gallery-image">
+            <img src="aka3.jpeg" alt="Akanaba Café storefront">
+          </div>
+          <div class="gallery-image">
+            <img src="aka4.jpeg" alt="Akanaba Café coaster branding">
+          </div>
+        </div>
+
+        <div class="project-note">
+          <span>✦</span>
+          <p>
+            The visual identity of Akanaba Café was crafted to evoke
+            a sense of nostalgia and belonging through earthy colors,
+            hand-drawn elements, and traditional café vibes that speak
+            to the heart.
+          </p>
+          <span>✦</span>
+        </div>
+      </section>
+    </div>
+
+    <!-- ===== SPEED PROJECT - FULL WIDTH BLACK ===== -->
+    <div class="speed-wrapper">
+      <section class="speed-project">
+
+        <div class="speed-info">
+          <h2>SPEED</h2>
+
+          <div class="speed-line">
+            <span></span>
+            <span>01</span>
+          </div>
+
+          <h3>
+            Built for<br>
+            <strong>Speed.</strong>
+          </h3>
+
+          <p>
+            SPEED is a high-performance automotive brand built around
+            power, precision, and competition. The visual identity
+            combines aggressive typography, motorsport-inspired
+            graphics, and a bold red, black, and metallic palette
+            to create a presence that feels fast, powerful, and
+            unmistakably performance-driven.
+          </p>
+
+          <div class="speed-details">
+            <div class="speed-detail">
+              <span>01</span>
+              <p>Brand Identity</p>
+            </div>
+            <div class="speed-detail">
+              <span>02</span>
+              <p>Logo Design</p>
+            </div>
+            <div class="speed-detail">
+              <span>03</span>
+              <p>Advertising</p>
+            </div>
+            <div class="speed-detail">
+              <span>04</span>
+              <p>Color Palette</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="speed-gallery">
+          <div class="speed-image speed-image-1">
+            <img src="speed2.jpeg" alt="SPEED automotive campaign">
+          </div>
+          <div class="speed-image speed-image-2">
+            <img src="speed1.jpeg" alt="SPEED billboard advertising">
+          </div>
+          <div class="speed-image speed-image-3">
+            <img src="speed4.jpeg" alt="SPEED automotive storefront">
+          </div>
+          <div class="speed-image speed-image-4">
+            <img src="speed3.jpeg" alt="SPEED logo and brand colors">
+          </div>
+          <div class="speed-image speed-image-5">
+            <img src="speed5.jpeg" alt="SPEED branded merchandise">
+          </div>
+        </div>
+
+        <div class="speed-statement">
+          <span>///</span>
+          <p>POWER. CONTROL. PRECISION.</p>
+          <span>///</span>
+        </div>
+
+      </section>
+    </div>
+
+    <!-- UX/UI -->
     <div class="work-section-block">
       <div class="work-section-header">
         <h3>🖥️ UX/UI Design</h3>
         <div class="work-section-meta">
-          <span class="client"><i class="fas fa-user"></i> Finlytics</span>
-          <span class="desc">Dashboard & mobile app flow</span>
+          <span class="client"><i class="fas fa-user"></i> Ivory</span>
+          <span class="desc">An interactive web design created for an engaging and intuitive e-learning experience.</span>
         </div>
       </div>
-      <div class="work-grid" id="uxui"></div>
+      <div class="work-grid">
+        <div class="work-item">
+          <div class="work-img frame-horizontal" style="padding:0;overflow:hidden;">
+            <img src="ux1.jpeg" alt="UX/UI design 1" style="width:100%;height:100%;object-fit:cover;display:block;">
+          </div>
+        </div>
+        <div class="work-item">
+          <div class="work-img frame-horizontal" style="padding:0;overflow:hidden;">
+            <img src="ux2.jpeg" alt="UX/UI design 2" style="width:100%;height:100%;object-fit:cover;display:block;">
+          </div>
+        </div>
+        <div class="work-item">
+          <div class="work-img frame-horizontal" style="padding:0;overflow:hidden;">
+            <img src="ux3.jpeg" alt="UX/UI design 3" style="width:100%;height:100%;object-fit:cover;display:block;">
+          </div>
+        </div>
+      </div>
     </div>
 
-    <!-- 3. Storyboard: 3 vertical frames, one client+desc -->
+    <!-- Storyboard -->
     <div class="work-section-block">
       <div class="work-section-header">
         <h3>🎬 Storyboard Layout</h3>
         <div class="work-section-meta">
-          <span class="client"><i class="fas fa-user"></i> Luma Studios</span>
-          <span class="desc">Animated short — scene breakdown</span>
+          <span class="client"><i class="fas fa-user"></i> Knowledge</span>
+          <span class="desc">A detailed storyboard created for educational motion videos and animated learning content.</span>
         </div>
       </div>
-      <div class="work-grid" id="storyboard"></div>
+      <div class="work-grid">
+        <div class="work-item">
+          <div class="work-img frame-vertical" style="padding:0;overflow:hidden;">
+            <img src="story1.jpeg" alt="Storyboard scene 1" style="width:100%;height:100%;object-fit:cover;display:block;">
+          </div>
+        </div>
+        <div class="work-item">
+          <div class="work-img frame-vertical" style="padding:0;overflow:hidden;">
+            <img src="story2.jpeg" alt="Storyboard scene 2" style="width:100%;height:100%;object-fit:cover;display:block;">
+          </div>
+        </div>
+        <div class="work-item">
+          <div class="work-img frame-vertical" style="padding:0;overflow:hidden;">
+            <img src="story3.jpeg" alt="Storyboard scene 3" style="width:100%;height:100%;object-fit:cover;display:block;">
+          </div>
+        </div>
+      </div>
     </div>
 
-    <!-- 4. Catalogs: 6 vertical frames, one client+desc -->
+    <!-- Catalogs -->
     <div class="work-section-block">
       <div class="work-section-header">
         <h3>📖 Catalogs</h3>
         <div class="work-section-meta">
-          <span class="client"><i class="fas fa-user"></i> Milan Style</span>
-          <span class="desc">Fashion lookbook & collection</span>
+          <span class="client"><i class="fas fa-user"></i> Alhomadhi</span>
+          <span class="desc">A refined catalog design created to showcase premium Arabian kitchenware through elegant product visuals.</span>
         </div>
       </div>
-      <div class="work-grid catalog-grid" id="catalogs"></div>
+      <div class="work-grid catalog-grid">
+        <div class="work-item">
+          <div class="work-img frame-vertical" style="padding:0;overflow:hidden;">
+            <img src="cata1.jpeg" alt="Catalog spread 1" style="width:100%;height:100%;object-fit:cover;display:block;">
+          </div>
+        </div>
+        <div class="work-item">
+          <div class="work-img frame-vertical" style="padding:0;overflow:hidden;">
+            <img src="cata2.jpeg" alt="Catalog spread 2" style="width:100%;height:100%;object-fit:cover;display:block;">
+          </div>
+        </div>
+        <div class="work-item">
+          <div class="work-img frame-vertical" style="padding:0;overflow:hidden;">
+            <img src="cata3.jpeg" alt="Catalog spread 3" style="width:100%;height:100%;object-fit:cover;display:block;">
+          </div>
+        </div>
+        <div class="work-item">
+          <div class="work-img frame-vertical" style="padding:0;overflow:hidden;">
+            <img src="cata4.jpeg" alt="Catalog spread 4" style="width:100%;height:100%;object-fit:cover;display:block;">
+          </div>
+        </div>
+        <div class="work-item">
+          <div class="work-img frame-vertical" style="padding:0;overflow:hidden;">
+            <img src="cata5.jpeg" alt="Catalog spread 5" style="width:100%;height:100%;object-fit:cover;display:block;">
+          </div>
+        </div>
+        <div class="work-item">
+          <div class="work-img frame-vertical" style="padding:0;overflow:hidden;">
+            <img src="cata6.jpeg" alt="Catalog spread 6" style="width:100%;height:100%;object-fit:cover;display:block;">
+          </div>
+        </div>
+      </div>
     </div>
 
-    <!-- 5. Character Design: 3 horizontal frames, no client, one desc for section -->
+    <!-- Character Design -->
     <div class="work-section-block">
       <div class="work-section-header">
         <h3>🧝 Character Design</h3>
         <div class="work-section-meta">
-          <span class="desc" style="opacity:0.9;">Concept art & character sheets</span>
+          <span class="desc" style="opacity:0.9;">A collection of 2D character designs developed for distinct projects, each with its own visual language and identity.</span>
         </div>
       </div>
-      <div class="work-grid" id="characterDesign"></div>
+      <div class="work-grid">
+        <div class="work-item">
+          <div class="work-img frame-horizontal" style="padding:0;overflow:hidden;">
+            <img src="cd1.jpeg" alt="Character design 1" style="width:100%;height:100%;object-fit:cover;object-position:center 5%;">
+          </div>
+        </div>
+        <div class="work-item">
+          <div class="work-img frame-horizontal" style="padding:0;overflow:hidden;">
+            <img src="cd2.jpeg" alt="Character design 2" style="width:100%;height:100%;object-fit:cover;object-position:center 10%;">
+          </div>
+        </div>
+        <div class="work-item">
+          <div class="work-img frame-horizontal" style="padding:0;overflow:hidden;">
+            <img src="cd3.jpeg" alt="Character design 3" style="width:100%;height:100%;object-fit:cover;display:block;">
+          </div>
+        </div>
+      </div>
     </div>
 
-    <!-- 6. Social media reels: 2 square video frames, one client+desc -->
+    <!-- Reels - 3 GIF frames with client names -->
     <div class="work-section-block">
       <div class="work-section-header">
         <h3>🎞️ Social Media Reels</h3>
-        <div class="work-section-meta">
-          <span class="client"><i class="fas fa-user"></i> EcoWear</span>
-          <span class="desc">Behind the scenes & product launch</span>
+      </div>
+      <div class="work-grid reel-grid">
+        <!-- Reel 1 -->
+        <div class="work-item">
+          <div class="work-img frame-video" style="padding:0;overflow:hidden;position:relative;background:#000;">
+        <video src="reel1.mp4" style="width:100%;" autoplay loop muted playsinline></video>
+            
+          </div>
+          <div class="work-info">
+            <div class="client-name"><i class="fas fa-user"></i> MacKlinik Ramadan Reel</div>
+          </div>
+        </div>
+        <!-- Reel 2 -->
+        <div class="work-item">
+          <div class="work-img frame-video" style="padding:0;overflow:hidden;position:relative;background:#000;">
+        <video src="reel2.mp4" style="width:100%;" autoplay loop muted playsinline></video>
+          </div>
+          <div class="work-info">
+            <div class="client-name"><i class="fas fa-user"></i> MacKlinik Eid Reel</div>
+          </div>
+        </div>
+        <!-- Reel 3 -->
+        <div class="work-item">
+          <div class="work-img frame-video" style="padding:0;overflow:hidden;position:relative;background:#000;">
+           <video src="gif1.mp4" style="width:100%;" controls autoplay loop muted playsinline></video>
+          </div>
+          <div class="work-info">
+            <div class="client-name"><i class="fas fa-user"></i> Sukseh Stand Up Comedy</div>
+          </div>
         </div>
       </div>
-      <div class="work-grid reel-grid" id="reels"></div>
     </div>
 
-    <!-- Logos (original) -->
+    <!-- Logos -->
     <h3 style="margin:50px 0 20px; font-family:'Playfair Display'; color:#fff; font-size:1.8rem; text-shadow:0 0 15px rgba(255,255,255,0.4);">Logos</h3>
-    <div class="logos-grid" id="logosGrid"></div>
+    <div class="logos-grid">
+      <div class="logo-card" style="padding:0;overflow:hidden;">
+        <img src="aka11.jpeg" alt="Logo 1" style="width:100%;height:100%;object-fit:contain;display:block;padding:10px;">
+      </div>
+      <div class="logo-card" style="padding:0;overflow:hidden;">
+        <img src="logo2.jpeg" alt="Logo 2" style="width:100%;height:100%;object-fit:contain;display:block;padding:10px;">
+      </div>
+      <div class="logo-card" style="padding:0;overflow:hidden;">
+        <img src="logo3.jpeg" alt="Logo 3" style="width:100%;height:100%;object-fit:contain;display:block;padding:10px;">
+      </div>
+      <div class="logo-card" style="padding:0;overflow:hidden;">
+        <img src="logo4.jpeg" alt="Logo 4" style="width:100%;height:100%;object-fit:contain;display:block;padding:10px;">
+      </div>
+      <div class="logo-card" style="padding:0;overflow:hidden;">
+        <img src="logo1.jpeg" alt="Logo 5" style="width:100%;height:100%;object-fit:contain;display:block;padding:10px;">
+      </div>
+      <div class="logo-card" style="padding:0;overflow:hidden;">
+        <img src="speed6.jpeg" alt="Logo 6" style="width:100%;height:100%;object-fit:contain;display:block;padding:10px;">
+      </div>
+    </div>
+
   </section>
 
-  <!-- Services, Skills, Resume, Contact -->
+  <!-- Services -->
   <section id="services">
     <h2 class="section-title">Services</h2>
     <div class="services-grid" id="servicesContainer"></div>
   </section>
 
+  <!-- Skills -->
   <section id="skills">
     <h2 class="section-title">Skills</h2>
     <div class="skills-columns">
@@ -408,102 +1197,87 @@
     </div>
   </section>
 
+  <!-- Resume -->
   <section id="resume">
-    <h2 class="section-title">Resume / CV</h2>
-    <div class="cv-placeholder">
-      <i class="fas fa-file-alt" style="font-size:2.8rem;color:#fff;text-shadow:0 0 15px rgba(255,255,255,0.5);"></i>
-      <p style="font-size:1.3rem;margin-top:15px;color:#fff;">CV will be placed here</p>
-      <p style="color:#fff;opacity:0.9;">(add your CV file or link later)</p>
-    </div>
-  </section>
+    <h2 class="section-title">Resume</h2>
+<!-- NEW CV & PORTFOLIO BOXES -->
+<div class="cv-portfolio-container">
+    
+    <!-- Box 1: CV Link -->
+    <a href="https://drive.google.com/file/d/1nLXNsJiW50aMYx49LFRN8eOwAOVG57Hk/view?usp=drive_link" target="_blank" class="cv-portfolio-box">
+        <i class="fas fa-file-pdf"></i>
+        <span>View My CV & Full Portfolio Link</span>
+    </a>
+</div>
 
+  <!-- Contact -->
   <section id="contact">
     <h2 class="section-title">Contact</h2>
     <div style="display:flex; flex-wrap:wrap; gap:25px; margin-bottom:25px;">
-      <div><i class="fas fa-envelope"></i> Email: (add later)</div>
-      <div><i class="fab fa-linkedin"></i> LinkedIn: (add later)</div>
+<div style="display: flex; flex-wrap: wrap; gap: 25px; margin-bottom: 25px;">
+    
+    <!-- Email (Now clickable!) -->
+    <a href="mailto:rababsalahabdelbr@gmail.com" style="color: white; text-decoration: none; display: flex; align-items: center; gap: 5px;">
+        <i class="fas fa-envelope"></i> Email: rababsalahabdelbr@gmail.com
+    </a>
+    
+    <!-- LinkedIn (Clickable) -->
+<a href="https://www.linkedin.com/in/rabab-salah-322a7016b" target="_blank" style="color: white; text-decoration: none; display: flex; align-items: center; gap: 5px;">
+        <i class="fab fa-linkedin"></i> LinkedIn: Rabab Salah
+    </a>
+    
+</div>
     </div>
     <div class="contact-form">
-      <h3 style="font-family:'Playfair Display'; color:#fff; margin-bottom:20px; text-shadow:0 0 12px rgba(255,255,255,0.4);">Send a message</h3>
-      <div class="form-group"><input type="text" placeholder="Your name" /></div>
-      <div class="form-group"><input type="email" placeholder="Your email" /></div>
-      <div class="form-group"><textarea rows="4" placeholder="Tell me about your project..."></textarea></div>
-      <button class="btn-primary" style="margin-top:10px;"><i class="fas fa-paper-plane"></i> Send inquiry</button>
+<!-- START OF NEW FORM -->
+<form action="https://formspree.io/f/mppadzje" method="POST">
+    
+    <div class="form-group">
+        <input type="text" name="name" placeholder="Your name" required>
     </div>
+    
+    <div class="form-group">
+        <input type="email" name="email" placeholder="Your email" required>
+    </div>
+    
+    <div class="form-group">
+        <textarea rows="4" name="message" placeholder="Tell me about your project..." required></textarea>
+    </div>
+    
+    <button type="submit" class="btn-primary" style="margin-top:10px;">
+        <i class="fas fa-paper-plane"></i> Send inquiry
+    </button>
+
+</form>
+<!-- END OF NEW FORM -->
     <div style="text-align:center; margin-top:45px; font-size:2.2rem; font-family:'Playfair Display'; color:#fff; text-shadow: 0 0 25px rgba(255,255,255,0.5);">
       Let's bring your ideas to life.
     </div>
   </section>
-  <footer>© Rabab Salah · Visual identity expert</footer>
+  <footer>© 2026 Nour Metwally · All Rights Reserved</footer>
 </div>
 
 <script>
   (function() {
-    // helper: create a single work item with frame class and label
-    function createWorkItem(frameClass, label, icon = 'fa-image') {
-      const div = document.createElement('div');
-      div.className = 'work-item';
-      div.innerHTML = `
-        <div class="work-img ${frameClass}">
-          <i class="fas ${icon}"></i>
-          <span>${label}</span>
-        </div>
-      `;
-      return div;
-    }
-
-    function fillGrid(id, count, frameClass, labelBase, icon = 'fa-image') {
-      const container = document.getElementById(id);
-      if (!container) return;
-      for (let i = 1; i <= count; i++) {
-        container.appendChild(createWorkItem(frameClass, `${labelBase} ${i}`, icon));
-      }
-    }
-
-    // 1. Social posts: 3 sections × 3 square frames
-    fillGrid('social1', 3, 'frame-square', 'Post', 'fa-square');
-    fillGrid('social2', 3, 'frame-square', 'Post', 'fa-square');
-    fillGrid('social3', 3, 'frame-square', 'Post', 'fa-square');
-
-    // 2. UX/UI: 3 horizontal
-    fillGrid('uxui', 3, 'frame-horizontal', 'Screen', 'fa-laptop');
-
-    // 3. Storyboard: 3 vertical
-    fillGrid('storyboard', 3, 'frame-vertical', 'Storyboard', 'fa-film');
-
-    // 4. Catalogs: 6 vertical
-    fillGrid('catalogs', 6, 'frame-vertical', 'Spread', 'fa-book-open');
-
-    // 5. Character Design: 3 horizontal
-    fillGrid('characterDesign', 3, 'frame-horizontal', 'Character', 'fa-user-astronaut');
-
-    // 6. Reels: 2 square video
-    fillGrid('reels', 2, 'frame-video', 'Reel', 'fa-play-circle');
-
-    // Logos
-    const logosGrid = document.getElementById('logosGrid');
-    for (let i = 1; i <= 6; i++) {
-      const d = document.createElement('div'); d.className = 'logo-card';
-      d.innerHTML = `<i class="fas fa-image"></i> Logo ${i}`;
-      logosGrid.appendChild(d);
-    }
-
     // Services
     const services = ['Marketing campaigns','Logos','Storyboard layouts','Catalogs','Social media posts','Hyperlinks','Brochures','Posters','Character design'];
     const icons = ['fa-bullhorn','fa-fan','fa-film','fa-book-open','fa-hashtag','fa-link','fa-file-alt','fa-sticky-note','fa-user-pen'];
     const sContainer = document.getElementById('servicesContainer');
     services.forEach((s, idx) => {
-      const div = document.createElement('div'); div.className = 'service-item';
+      const div = document.createElement('div');
+      div.className = 'service-item';
       div.innerHTML = `<i class="fas ${icons[idx]}"></i> ${s}`;
       sContainer.appendChild(div);
     });
 
-    // Skills
+    // Skills - Technical
     ['Adobe Photoshop','Adobe Illustrator','Adobe Premiere','Adobe InDesign'].forEach(s => {
       const li = document.createElement('li');
       li.innerHTML = `<i class="fas fa-pen-fancy"></i> ${s}`;
       document.getElementById('technicalSkills').appendChild(li);
     });
+
+    // Skills - Professional
     ['Communication','Project Management','Leadership'].forEach(s => {
       const li = document.createElement('li');
       li.innerHTML = `<i class="fas fa-briefcase"></i> ${s}`;
