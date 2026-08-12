@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=5.0, user-scalable=yes">
+  <title>Rabab Salah · Visual Alchemist</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: linear-gradient(135deg, #2d0035 0%, #350040 30%, #3d0a4d 50%, #4a1058 65%, #5e1a6e 80%, #6b1f7d 100%);
+      background-attachment: fixed;
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      color: #fff;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+      min-height: 100vh;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: radial-gradient(ellipse at 25% 15%, rgba(160,60,200,0.1) 0%, transparent 50%),
+                  radial-gradient(ellipse at 70% 65%, rgba(80,15,100,0.18) 0%, transparent 50%),
+                  radial-gradient(ellipse at 50% 50%, rgba(100,30,140,0.06) 0%, transparent 60%);
+      pointer-events: none; z-index: 0;
+    }
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 28px; position: relative; z-index: 1; }
+    h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 600; letter-spacing: -0.2px; color: #fff; }
+    section { padding: 80px 0; border-bottom: 1px solid rgba(200,160,230,0.15); }
+    .section-title {
+      font-size: clamp(2.4rem, 7vw, 3.8rem);
+      margin-bottom: 48px;
+      color: #fff;
+      display: inline-block;
+      position: relative;
+      font-weight: 600;
+      text-shadow: 0 0 20px rgba(255,255,255,0.3);
+    }
+    .section-title::after {
+      content: '';
+      position: absolute; left: 0; bottom: -12px; width: 70px; height: 4px;
+      background: linear-gradient(90deg, #fff, #d8a0f0);
+      border-radius: 4px;
+      box-shadow: 0 0 12px rgba(255,255,255,0.5);
+    }
+    .hero {
+      display: flex; align-items: center; justify-content: center;
+      gap: 70px; min-height: 90vh; padding: 60px 20px;
+      flex-wrap: wrap; border-bottom: none;
+    }
+    .hero-photo-wrapper { display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .hero-photo {
+      width: 280px; height: 280px; border-radius: 50%; overflow: hidden;
+      border: 2px solid rgba(255,255,255,0.4);
+      box-shadow: 0 0 50px rgba(200,160,230,0.35);
+      transition: 0.3s;
+    }
+    .hero-photo:hover { border-color: rgba(255,255,255,0.7); box-shadow: 0 0 60px rgba(200,160,230,0.5); }
+    .hero-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .hero-text-stack { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; }
+    .hero-text-stack h1 {
+      font-size: clamp(3.5rem, 10vw, 6rem);
+      font-weight: 700; line-height: 1.1;
+      text-shadow: 0 0 45px rgba(255,255,255,0.5);
+    }
+    .hero-text-stack .profession {
+      font-size: clamp(1.4rem, 3.5vw, 2rem);
+      font-weight: 400; font-style: italic;
+      text-shadow: 0 0 22px rgba(255,255,255,0.5);
+      margin-bottom: 15px;
+    }
+    .btn-primary {
+      background: linear-gradient(125deg, #c070e0, #8b3db0);
+      border: 1px solid rgba(255,255,255,0.6);
+      padding: 16px 42px; border-radius: 50px;
+      font-size: 1.15rem; font-weight: 600; color: #fff;
+      cursor: pointer; transition: 0.3s;
+      box-shadow: 0 8px 24px rgba(160,100,210,0.5);
+      text-decoration: none; display: inline-block;
+    }
+    .btn-primary:hover {
+      background: linear-gradient(125deg, #d090f0, #a04dc8);
+      border-color: #fff; box-shadow: 0 14px 32px rgba(200,160,230,0.7);
+      transform: translateY(-3px);
+    }
+
+    /* ---- Featured Work styles ---- */
+    .work-section-block {
+      margin-bottom: 50px;
+      background: rgba(30,4,40,0.25);
+      backdrop-filter: blur(4px);
+      border-radius: 32px;
+      padding: 28px 24px 32px;
+      border: 1px solid rgba(255,255,255,0.1);
+      transition: 0.2s;
+    }
+    .work-section-block:hover { border-color: rgba(255,255,255,0.25); }
+    .work-section-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 18px;
+      gap: 10px;
+    }
+    .work-section-header h3 {
+      font-size: 1.7rem;
+      font-family: 'Playfair Display', serif;
+      color: #fff;
+      text-shadow: 0 0 12px rgba(255,255,255,0.3);
+    }
+    .work-section-meta {
+      color: #fff;
+      opacity: 0.85;
+      font-size: 0.95rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+    .work-section-meta .client { font-weight: 500; color: #fff; }
+    .work-section-meta .client i { margin-right: 6px; }
+    .work-section-meta .desc { opacity: 0.8; font-style: italic; }
+    .work-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      margin-top: 4px;
+    }
+    .work-item {
+      background: rgba(30,4,40,0.5);
+      backdrop-filter: blur(8px);
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.2);
+      overflow: hidden;
+      transition: 0.25s;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+      flex: 0 0 calc(33.333% - 16px);
+      max-width: calc(33.333% - 16px);
+    }
+    .work-item:hover {
+      border-color: #fff;
+      transform: translateY(-4px);
+      box-shadow: 0 14px 28px rgba(200,160,230,0.35);
+      background: rgba(40,8,55,0.6);
+    }
+    .work-img {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      background: rgba(20,2,32,0.5);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      font-size: 0.85rem;
+      gap: 6px;
+      width: 100%;
+    }
+    .work-img i { font-size: 1.3rem; opacity: 0.8; }
+    .work-img span { opacity: 0.7; font-weight: 300; }
+
+    /* frame shapes */
+    .frame-square { aspect-ratio: 1/1; }
+    .frame-horizontal { aspect-ratio: 16/10; }
+    .frame-vertical { aspect-ratio: 9/14; }
+    .frame-video { aspect-ratio: 1/1; background: rgba(0,0,0,0.25); }
+
+    /* for 6 items in catalogs: 2 rows of 3 */
+    .catalog-grid .work-item { flex: 0 0 calc(33.333% - 16px); max-width: calc(33.333% - 16px); }
+
+    /* for reels: only 2 items */
+    .reel-grid .work-item { flex: 0 0 calc(50% - 12px); max-width: calc(50% - 12px); }
+
+    @media (max-width: 768px) {
+      .hero { flex-direction: column; text-align: center; gap: 35px; min-height: auto; }
+      .hero-text-stack { align-items: center; }
+      .hero-photo { width: 240px; height: 240px; }
+      .work-item { flex: 0 0 calc(50% - 12px); max-width: calc(50% - 12px); }
+      .catalog-grid .work-item { flex: 0 0 calc(50% - 12px); max-width: calc(50% - 12px); }
+      .reel-grid .work-item { flex: 0 0 calc(50% - 12px); max-width: calc(50% - 12px); }
+    }
+    @media (max-width: 480px) {
+      .hero-photo { width: 200px; height: 200px; }
+      .work-item { flex: 0 0 100%; max-width: 100%; }
+      .catalog-grid .work-item { flex: 0 0 100%; max-width: 100%; }
+      .reel-grid .work-item { flex: 0 0 100%; max-width: 100%; }
+      .work-section-header { flex-direction: column; align-items: flex-start; }
+    }
+
+    /* other sections */
+    .placeholder-box {
+      background: rgba(30,4,40,0.5); backdrop-filter: blur(12px);
+      border: 2px dashed rgba(255,255,255,0.5); border-radius: 24px;
+      padding: 28px; color: #fff; margin: 25px 0;
+    }
+    .about-highlight {
+      background: rgba(100,30,140,0.2); backdrop-filter: blur(10px);
+      padding: 28px; border-radius: 30px; border-left: 6px solid #fff;
+      font-style: italic; color: #fff;
+    }
+    .services-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(165px,1fr)); gap: 22px;
+    }
+    .service-item {
+      background: rgba(30,4,40,0.5); backdrop-filter: blur(12px);
+      padding: 28px 14px; border-radius: 22px; text-align: center;
+      border: 1px solid rgba(255,255,255,0.35); font-weight: 500; color: #fff;
+      transition: 0.25s;
+    }
+    .service-item i { color: #fff; font-size: 1.6rem; margin-bottom: 10px; display: block; }
+    .service-item:hover { background: rgba(40,8,55,0.65); border-color: #fff; transform: translateY(-2px); }
+    .skills-columns { display: flex; flex-wrap: wrap; gap: 45px; }
+    .skill-category { flex: 1; min-width: 240px; }
+    .skill-category h3 { color: #fff; font-size: 1.6rem; border-bottom: 1px solid rgba(255,255,255,0.3); padding-bottom: 10px; }
+    .skill-list { list-style: none; }
+    .skill-list li { padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.15); color: #fff; display: flex; align-items: center; gap: 12px; }
+    .contact-form {
+      background: rgba(30,4,40,0.5); backdrop-filter: blur(18px);
+      border-radius: 32px; padding: 38px; margin: 30px 0;
+      border: 1px solid rgba(255,255,255,0.35);
+    }
+    .form-group input, .form-group textarea {
+      width: 100%; padding: 16px 20px; margin: 12px 0;
+      background: rgba(40,8,55,0.55); border: 1px solid rgba(255,255,255,0.4);
+      border-radius: 40px; color: #fff; outline: none; transition: 0.3s;
+      font-family: inherit;
+    }
+    .form-group input:focus, .form-group textarea:focus {
+      border-color: #fff; box-shadow: 0 0 18px rgba(255,255,255,0.35);
+      background: rgba(50,10,65,0.6);
+    }
+    .form-group input::placeholder, .form-group textarea::placeholder { color: rgba(255,255,255,0.7); }
+    .form-group textarea { border-radius: 24px; resize: vertical; }
+    .cv-placeholder {
+      background: rgba(30,4,40,0.45); border: 2px dashed rgba(255,255,255,0.5);
+      border-radius: 28px; padding: 50px; text-align: center; backdrop-filter: blur(10px);
+    }
+    .extra-skills-box {
+      background: rgba(30,4,40,0.4); backdrop-filter: blur(10px);
+      padding: 22px; border-radius: 22px; display: flex; flex-wrap: wrap; gap: 35px;
+      border: 1px solid rgba(255,255,255,0.3); margin-top: 30px;
+    }
+    .logos-grid {
+      display: flex; flex-wrap: wrap; gap: 22px; margin-top: 30px;
+    }
+    .logo-card {
+      flex: 1 1 140px; min-width: 130px; height: 115px;
+      background: rgba(30,4,40,0.5); backdrop-filter: blur(12px);
+      border-radius: 20px; display: flex; align-items: center; justify-content: center;
+      border: 1px solid rgba(255,255,255,0.35); color: #fff; transition: 0.25s;
+    }
+    .logo-card:hover { border-color: #fff; background: rgba(40,8,55,0.6); box-shadow: 0 8px 22px rgba(200,160,230,0.4); }
+    footer { text-align: center; padding: 30px; opacity: 0.8; }
+  </style>
+</head>
+<body>
+<div class="container">
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-photo-wrapper">
+      <div class="hero-photo"><img src="rabab.jpeg" alt="Rabab Salah"></div>
+    </div>
+    <div class="hero-text-stack">
+      <h1>Rabab Salah</h1>
+      <div class="profession">Expert Graphic Designer</div>
+      <a href="#contact" class="btn-primary"><i class="fas fa-feather-alt"></i> Begin collaboration</a>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <h2 class="section-title">About Me</h2>
+    <div class="about-text">
+      <p><strong>Who I am:</strong> Senior Graphic Designer with over 20 years of experience creating impactful visual identities, marketing campaigns, and digital experiences for businesses across multiple industries.</p>
+      <div class="placeholder-box"><i class="fas fa-pen-fancy"></i> Background space (write later)</div>
+      <div class="about-highlight">✨ People hire people. Design is emotion, precision, and the courage to be unforgettable.</div>
+    </div>
+  </section>
+
+  <!-- FEATURED WORK - 6 parts with section-level client/desc -->
+  <section id="work">
+    <h2 class="section-title">Featured Work</h2>
+
+<div class="work-grid" id="social1">
+  <!-- Photo 1 -->
+  <div class="work-item">
+    <div class="work-img frame-square">
+      <img src="your-image-1.jpg" alt="Social post 1" style="width:100%;height:100%;object-fit:cover;">
+    </div>
+  </div>
+  <!-- Photo 2 -->
+  <div class="work-item">
+    <div class="work-img frame-square">
+      <img src="your-image-2.jpg" alt="Social post 2" style="width:100%;height:100%;object-fit:cover;">
+    </div>
+  </div>
+  <!-- Photo 3 -->
+  <div class="work-item">
+    <div class="work-img frame-square">
+      <img src="your-image-3.jpg" alt="Social post 3" style="width:100%;height:100%;object-fit:cover;">
+    </div>
+  </div>
+</div>
+
+    <div class="work-section-block">
+      <div class="work-section-header">
+        <h3>📱 Social Media Posts · Campaign B</h3>
+        <div class="work-section-meta">
+          <span class="client"><i class="fas fa-user"></i> Urban Eats</span>
+          <span class="desc">Instagram grid & reels teaser</span>
+        </div>
+      </div>
+      <div class="work-grid" id="social2"></div>
+    </div>
+
+    <div class="work-section-block">
+      <div class="work-section-header">
+        <h3>📱 Social Media Posts · Campaign C</h3>
+        <div class="work-section-meta">
+          <span class="client"><i class="fas fa-user"></i> Aura Wellness</span>
+          <span class="desc">Product highlights & lifestyle</span>
+        </div>
+      </div>
+      <div class="work-grid" id="social3"></div>
+    </div>
+
+    <!-- 2. UX/UI: 3 horizontal frames, one client+desc -->
+    <div class="work-section-block">
+      <div class="work-section-header">
+        <h3>🖥️ UX/UI Design</h3>
+        <div class="work-section-meta">
+          <span class="client"><i class="fas fa-user"></i> Finlytics</span>
+          <span class="desc">Dashboard & mobile app flow</span>
+        </div>
+      </div>
+      <div class="work-grid" id="uxui"></div>
+    </div>
+
+    <!-- 3. Storyboard: 3 vertical frames, one client+desc -->
+    <div class="work-section-block">
+      <div class="work-section-header">
+        <h3>🎬 Storyboard Layout</h3>
+        <div class="work-section-meta">
+          <span class="client"><i class="fas fa-user"></i> Luma Studios</span>
+          <span class="desc">Animated short — scene breakdown</span>
+        </div>
+      </div>
+      <div class="work-grid" id="storyboard"></div>
+    </div>
+
+    <!-- 4. Catalogs: 6 vertical frames, one client+desc -->
+    <div class="work-section-block">
+      <div class="work-section-header">
+        <h3>📖 Catalogs</h3>
+        <div class="work-section-meta">
+          <span class="client"><i class="fas fa-user"></i> Milan Style</span>
+          <span class="desc">Fashion lookbook & collection</span>
+        </div>
+      </div>
+      <div class="work-grid catalog-grid" id="catalogs"></div>
+    </div>
+
+    <!-- 5. Character Design: 3 horizontal frames, no client, one desc for section -->
+    <div class="work-section-block">
+      <div class="work-section-header">
+        <h3>🧝 Character Design</h3>
+        <div class="work-section-meta">
+          <span class="desc" style="opacity:0.9;">Concept art & character sheets</span>
+        </div>
+      </div>
+      <div class="work-grid" id="characterDesign"></div>
+    </div>
+
+    <!-- 6. Social media reels: 2 square video frames, one client+desc -->
+    <div class="work-section-block">
+      <div class="work-section-header">
+        <h3>🎞️ Social Media Reels</h3>
+        <div class="work-section-meta">
+          <span class="client"><i class="fas fa-user"></i> EcoWear</span>
+          <span class="desc">Behind the scenes & product launch</span>
+        </div>
+      </div>
+      <div class="work-grid reel-grid" id="reels"></div>
+    </div>
+
+    <!-- Logos (original) -->
+    <h3 style="margin:50px 0 20px; font-family:'Playfair Display'; color:#fff; font-size:1.8rem; text-shadow:0 0 15px rgba(255,255,255,0.4);">Logos</h3>
+    <div class="logos-grid" id="logosGrid"></div>
+  </section>
+
+  <!-- Services, Skills, Resume, Contact -->
+  <section id="services">
+    <h2 class="section-title">Services</h2>
+    <div class="services-grid" id="servicesContainer"></div>
+  </section>
+
+  <section id="skills">
+    <h2 class="section-title">Skills</h2>
+    <div class="skills-columns">
+      <div class="skill-category"><h3>Technical</h3><ul class="skill-list" id="technicalSkills"></ul></div>
+      <div class="skill-category"><h3>Professional</h3><ul class="skill-list" id="professionalSkills"></ul></div>
+    </div>
+    <div class="extra-skills-box">
+      <div><i class="fas fa-cube"></i> <strong>3D Max (Animatics)</strong></div>
+      <div><i class="fas fa-film"></i> <strong>Montage</strong></div>
+    </div>
+  </section>
+
+  <section id="resume">
+    <h2 class="section-title">Resume / CV</h2>
+    <div class="cv-placeholder">
+      <i class="fas fa-file-alt" style="font-size:2.8rem;color:#fff;text-shadow:0 0 15px rgba(255,255,255,0.5);"></i>
+      <p style="font-size:1.3rem;margin-top:15px;color:#fff;">CV will be placed here</p>
+      <p style="color:#fff;opacity:0.9;">(add your CV file or link later)</p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2 class="section-title">Contact</h2>
+    <div style="display:flex; flex-wrap:wrap; gap:25px; margin-bottom:25px;">
+      <div><i class="fas fa-envelope"></i> Email: (add later)</div>
+      <div><i class="fab fa-linkedin"></i> LinkedIn: (add later)</div>
+    </div>
+    <div class="contact-form">
+      <h3 style="font-family:'Playfair Display'; color:#fff; margin-bottom:20px; text-shadow:0 0 12px rgba(255,255,255,0.4);">Send a message</h3>
+      <div class="form-group"><input type="text" placeholder="Your name" /></div>
+      <div class="form-group"><input type="email" placeholder="Your email" /></div>
+      <div class="form-group"><textarea rows="4" placeholder="Tell me about your project..."></textarea></div>
+      <button class="btn-primary" style="margin-top:10px;"><i class="fas fa-paper-plane"></i> Send inquiry</button>
+    </div>
+    <div style="text-align:center; margin-top:45px; font-size:2.2rem; font-family:'Playfair Display'; color:#fff; text-shadow: 0 0 25px rgba(255,255,255,0.5);">
+      Let's bring your ideas to life.
+    </div>
+  </section>
+  <footer>© Rabab Salah · Visual identity expert</footer>
+</div>
+
+<script>
+  (function() {
+    // helper: create a single work item with frame class and label
+    function createWorkItem(frameClass, label, icon = 'fa-image') {
+      const div = document.createElement('div');
+      div.className = 'work-item';
+      div.innerHTML = `
+        <div class="work-img ${frameClass}">
+          <i class="fas ${icon}"></i>
+          <span>${label}</span>
+        </div>
+      `;
+      return div;
+    }
+
+    function fillGrid(id, count, frameClass, labelBase, icon = 'fa-image') {
+      const container = document.getElementById(id);
+      if (!container) return;
+      for (let i = 1; i <= count; i++) {
+        container.appendChild(createWorkItem(frameClass, `${labelBase} ${i}`, icon));
+      }
+    }
+
+    // 1. Social posts: 3 sections × 3 square frames
+    fillGrid('social1', 3, 'frame-square', 'Post', 'fa-square');
+    fillGrid('social2', 3, 'frame-square', 'Post', 'fa-square');
+    fillGrid('social3', 3, 'frame-square', 'Post', 'fa-square');
+
+    // 2. UX/UI: 3 horizontal
+    fillGrid('uxui', 3, 'frame-horizontal', 'Screen', 'fa-laptop');
+
+    // 3. Storyboard: 3 vertical
+    fillGrid('storyboard', 3, 'frame-vertical', 'Storyboard', 'fa-film');
+
+    // 4. Catalogs: 6 vertical
+    fillGrid('catalogs', 6, 'frame-vertical', 'Spread', 'fa-book-open');
+
+    // 5. Character Design: 3 horizontal
+    fillGrid('characterDesign', 3, 'frame-horizontal', 'Character', 'fa-user-astronaut');
+
+    // 6. Reels: 2 square video
+    fillGrid('reels', 2, 'frame-video', 'Reel', 'fa-play-circle');
+
+    // Logos
+    const logosGrid = document.getElementById('logosGrid');
+    for (let i = 1; i <= 6; i++) {
+      const d = document.createElement('div'); d.className = 'logo-card';
+      d.innerHTML = `<i class="fas fa-image"></i> Logo ${i}`;
+      logosGrid.appendChild(d);
+    }
+
+    // Services
+    const services = ['Marketing campaigns','Logos','Storyboard layouts','Catalogs','Social media posts','Hyperlinks','Brochures','Posters','Character design'];
+    const icons = ['fa-bullhorn','fa-fan','fa-film','fa-book-open','fa-hashtag','fa-link','fa-file-alt','fa-sticky-note','fa-user-pen'];
+    const sContainer = document.getElementById('servicesContainer');
+    services.forEach((s, idx) => {
+      const div = document.createElement('div'); div.className = 'service-item';
+      div.innerHTML = `<i class="fas ${icons[idx]}"></i> ${s}`;
+      sContainer.appendChild(div);
+    });
+
+    // Skills
+    ['Adobe Photoshop','Adobe Illustrator','Adobe Premiere','Adobe InDesign'].forEach(s => {
+      const li = document.createElement('li');
+      li.innerHTML = `<i class="fas fa-pen-fancy"></i> ${s}`;
+      document.getElementById('technicalSkills').appendChild(li);
+    });
+    ['Communication','Project Management','Leadership'].forEach(s => {
+      const li = document.createElement('li');
+      li.innerHTML = `<i class="fas fa-briefcase"></i> ${s}`;
+      document.getElementById('professionalSkills').appendChild(li);
+    });
+  })();
+</script>
+</body>
+</html>
